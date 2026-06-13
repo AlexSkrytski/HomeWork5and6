@@ -1,4 +1,6 @@
 
+using HomeWork5and6.services;
+
 namespace HomeWork5and6
 {
     public class Program
@@ -12,6 +14,8 @@ namespace HomeWork5and6
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+
+            builder.Services.AddSingleton<AccountService>();
 
             var app = builder.Build();
 
