@@ -8,14 +8,13 @@ namespace HomeWork5and6.Controllers
     [ApiController]
     public class HomeWork6Task4Controller : ControllerBase
     {
-
-        List<string> randomStrings = new List<string>
-        {
+        readonly string[] randomStrings = 
+        [
             "Яблоко", "Банан", "Апельсин", "Груша", "Слива",
             "Виноград", "Киви", "Манго", "Персик", "Ананас",
             "Арбуз", "Дыня", "Лимон", "Вишня", "Черешня",
             "Абрикос", "Гранат", "Инжир", "Папайя", "Кокос"
-        };
+        ];
 
 
         [HttpGet("stringBuild")]

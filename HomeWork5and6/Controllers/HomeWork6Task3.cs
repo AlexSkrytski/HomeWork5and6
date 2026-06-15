@@ -9,15 +9,15 @@ namespace HomeWork5and6.Controllers
     {
 
         // Пример статического метода деления
-        public static bool TryDivide(double a, double b, out double result)
+        public static bool TryDivide(double dividend, double divisor, out double result)
         {
-            if (b == 0)
+            if (divisor == 0)
             {
                 result = 0;
                 return false; // Деление на ноль невозможно
             }
 
-            result = a / b;
+            result = dividend / divisor;
             return true;
         }
 
@@ -32,7 +32,7 @@ namespace HomeWork5and6.Controllers
             }
 
             // Вызываем статический метод, используя свойства из JSON
-            bool isSuccess = TryDivide(request.A, request.B, out double calculationResult);
+            bool isSuccess = TryDivide(request.Dividend, request.Divisor, out double calculationResult);
 
             if (isSuccess)
             {

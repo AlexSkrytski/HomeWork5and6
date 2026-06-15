@@ -16,7 +16,7 @@ namespace HomeWork5and6.Controllers
                 return Ok("Signed in as Admin!");
             }
 
-            return BadRequest("Invalid role!");
+            return Unauthorized("Invalid role!");
 
         }
     }

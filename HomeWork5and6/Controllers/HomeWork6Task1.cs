@@ -8,11 +8,10 @@ namespace HomeWork5and6.Controllers
     public class HomeWorkTask1Controller : ControllerBase
     {
 
-        private int _sum;
-
         [HttpPost("analyze")]
         public ActionResult<string> ArraySum(int[] requestIds)
         {
+
             try
             {
                 if (requestIds.Length == 0)
@@ -25,15 +24,15 @@ namespace HomeWork5and6.Controllers
                 return BadRequest($"Error - {ex.Message}");
             }
 
+            int _sum = 0;
+
             foreach (int item in requestIds)
             {
                 _sum += item;
             }
 
-
             return Ok($"Sum - {_sum}");
 
         }
-
     }
 }
