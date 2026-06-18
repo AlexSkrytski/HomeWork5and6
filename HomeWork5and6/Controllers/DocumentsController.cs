@@ -1,6 +1,5 @@
 ﻿using HomeWork5and6.Domains;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json.Serialization;
 
 namespace HomeWork5and6.Controllers
 {
@@ -15,7 +14,7 @@ namespace HomeWork5and6.Controllers
             // Правяраем, ці з'яўляецца дакумент менавіта інвойсам
             if (document is InvoiceDocument invoice)
             {
-                // Тут ваша логіка захавання інвойсу ў базу даных
+                // Тут логіка захавання інвойсу ў базу даных
                 var result = $"Invoice created successfully. Amount: {invoice.Amount} {invoice.Currency}";
 
                 return CreatedAtAction(nameof(CreateDocument), new { id = invoice.Id }, result);
