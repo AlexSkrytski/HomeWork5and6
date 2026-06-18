@@ -14,7 +14,10 @@
         }
         public void AddFunds(decimal amount)
         {
+           if(amount > 0)
+            {
             _balance += amount;
+        }
         }
         public bool Withdraw(decimal withdraw)
         {

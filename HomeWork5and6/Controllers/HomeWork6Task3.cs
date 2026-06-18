@@ -1,4 +1,5 @@
 ﻿using HomeWork5and6.Domains;
+using HomeWork5and6.services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeWork5and6.Controllers
@@ -7,18 +8,10 @@ namespace HomeWork5and6.Controllers
     [Route("api/[controller]")]
     public class HomeWork6Task3Controller : ControllerBase
     {
-
-        // Пример статического метода деления
-        public static bool TryDivide(double dividend, double divisor, out double result)
+        private readonly DevideService _devideService;
+        public HomeWork6Task3Controller(DevideService devideService)
         {
-            if (divisor == 0)
-            {
-                result = 0;
-                return false; // Деление на ноль невозможно
-            }
-
-            result = dividend / divisor;
-            return true;
+            _devideService = devideService;
         }
 
         // HTTP-эндпоинт контроллера
@@ -32,7 +25,7 @@ namespace HomeWork5and6.Controllers
             }
 
             // Вызываем статический метод, используя свойства из JSON
-            bool isSuccess = TryDivide(request.Dividend, request.Divisor, out double calculationResult);
+            bool isSuccess = _devideService.TryDivide(request.Dividend, request.Divisor, out double calculationResult);
 
             if (isSuccess)
             {

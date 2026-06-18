@@ -8,13 +8,13 @@ namespace HomeWork5and6.Controllers
     public class HomeWork6Task2Controller : ControllerBase
     {
 
-        [HttpPost("analyze")]
-        public ActionResult<string> ArraySum(int[] requestIds)
+        [HttpPost("scoresfilter")]
+        public ActionResult<string> ScoresFilter(int[] requestIds)
         {
 
             try
             {
-                if (requestIds.Length == 0)
+                if (requestIds.Length == 0 && requestIds == null)
                 {
                     return BadRequest("empty");
                 }

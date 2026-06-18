@@ -8,7 +8,7 @@ namespace HomeWork5and6.Controllers
     [ApiController]
     public class HomeWork6Task4Controller : ControllerBase
     {
-        readonly string[] randomStrings = 
+        readonly string[] randomStrings =
         [
             "Яблоко", "Банан", "Апельсин", "Груша", "Слива",
             "Виноград", "Киви", "Манго", "Персик", "Ананас",
@@ -21,19 +21,13 @@ namespace HomeWork5and6.Controllers
         public ActionResult TagsAnalyze()
         {
 
-            var validTags = randomStrings.Where(tag => !string
-            .IsNullOrWhiteSpace(tag))
-                .ToArray();
-
-            int validTagsCounter = validTags.Length;
-
             StringBuilder newString = new StringBuilder();
 
-            newString.Append(string.Join(" ", validTags));
+            newString.AppendJoin(" ", randomStrings);
 
             string finalString = newString.ToString();
 
-            return Ok($"Not empty - {validTagsCounter} item(s). New string: {finalString}");
+            return Ok($"Length - {finalString.Length} item(s). New string: {finalString}");
 
         }
 

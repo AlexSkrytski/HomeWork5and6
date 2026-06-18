@@ -7,15 +7,15 @@ namespace HomeWork5and6.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-
         private readonly AccountService _account;
+
         public AccountController(AccountService account)
         {
             _account = account;
         }
 
         [HttpGet("balance")]
-        public ActionResult<decimal> GetBalance()
+        public ActionResult GetBalance()
         {
             return Ok(new { Balance = _account.Balance });
         }
@@ -24,7 +24,6 @@ namespace HomeWork5and6.Controllers
         public ActionResult Deposit([FromBody] decimal deposit)
         {
             _account.AddFunds(deposit);
-
 
             return Ok(new { Message = "Депозит успешно внесен", NewBalance = _account.Balance });
 

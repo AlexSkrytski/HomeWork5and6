@@ -8,7 +8,7 @@ namespace HomeWork5and6.Controllers
     public class HomeWorkTask1Controller : ControllerBase
     {
 
-        [HttpPost("analyze")]
+        [HttpPost("arraysum")]
         public ActionResult<string> ArraySum(int[] requestIds)
         {
 
