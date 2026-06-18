@@ -1,6 +1,7 @@
 
 using HomeWork5and6.Domains;
 using HomeWork5and6.services;
+using HomeWork5and6.Services.Interfaces;
 
 namespace HomeWork5and6
 {
@@ -18,7 +19,7 @@ namespace HomeWork5and6
 
             builder.Services.AddScoped<DynamicDiscountService>();
 
-            builder.Services.AddSingleton<AccountService>();
+            builder.Services.AddSingleton<IAccountServiceable, AccountService>();
 
             builder.Services.AddScoped<ProductService>();
 

@@ -1,4 +1,4 @@
-﻿using HomeWork5and6.services;
+﻿using HomeWork5and6.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeWork5and6.Controllers
@@ -7,17 +7,17 @@ namespace HomeWork5and6.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly AccountService _account;
+        private readonly IAccountServiceable _account;
 
-        public AccountController(AccountService account)
+        public AccountController(IAccountServiceable account)
         {
             _account = account;
         }
 
         [HttpGet("balance")]
-        public ActionResult GetBalance()
+        public ActionResult<decimal> GetBalance()
         {
-            return Ok(new { Balance = _account.Balance });
+            return Ok($"Балланс : {_account.Balance} руб.");
         }
 
         [HttpPost("balance")]
@@ -25,7 +25,7 @@ namespace HomeWork5and6.Controllers
         {
             _account.AddFunds(deposit);
 
-            return Ok(new { Message = "Депозит успешно внесен", NewBalance = _account.Balance });
+            return Ok(new { Message = "Депозит успешно внесен.", NewBalance = _account.Balance });
 
         }
         [HttpDelete("balance")]
@@ -39,7 +39,7 @@ namespace HomeWork5and6.Controllers
                 return BadRequest(new { Message = "Не удалось выполнить операцию. Недостаточно средств или сумма указана неверно." });
             }
 
-            return Ok(new { Message = "Средства успешно сняты", NewBalance = _account.Balance });
+            return Ok(new { Message = "Средства успешно сняты.", NewBalance = _account.Balance });
         }
     }
 }

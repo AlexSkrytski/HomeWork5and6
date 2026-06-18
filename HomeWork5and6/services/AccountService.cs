@@ -1,23 +1,19 @@
-﻿namespace HomeWork5and6.services
-{
-    public class AccountService
-    {
+﻿using HomeWork5and6.Services.Interfaces;
 
+namespace HomeWork5and6.services
+{
+    public class AccountService : IAccountServiceable
+    {
         private decimal _balance;
 
         public decimal Balance => _balance;
-        public decimal GetBalance()
-        {
 
-            return _balance;
-
-        }
         public void AddFunds(decimal amount)
         {
-           if(amount > 0)
+            if (amount > 0)
             {
-            _balance += amount;
-        }
+                _balance += amount;
+            }
         }
         public bool Withdraw(decimal withdraw)
         {
